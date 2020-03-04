@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+import sklearn.datasets as skdata
+import numpy as np
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from matplotlib import image
+from matplotlib import pyplot
+# load image as pixel array
+datar=np.zeros((10,30000))
+for i in range(1,11):
+    data = image.imread(str(i)+'.jpg')
+    datar[i-1] = data.reshape((1, -1))[0,:30000]
+labels=np.array([0,1,1,1,0,1,0,1,1,1])
+x_train, x_test, y_train, y_test = train_test_split(datar, labels, train_size=0.5)
+clf = svm.SVC()
